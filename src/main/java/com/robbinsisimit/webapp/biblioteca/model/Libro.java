@@ -16,7 +16,7 @@ import lombok.Data;
 public class Libro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
     private String isbn;
     private String nombre;
     @Column(columnDefinition = "TEXT")

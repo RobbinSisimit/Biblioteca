@@ -22,17 +22,17 @@ import com.robbinsisimit.webapp.biblioteca.service.ClienteService;
 
 @Controller
 @RestController
-@RequestMapping(value= "cliente")
+@RequestMapping(value= "")
 public class ClienteController {
     @Autowired
     ClienteService clienteService;
 
-    @GetMapping("/")
+    @GetMapping("/clientes")
     public List<Cliente> listarCliente(){
         return clienteService.listarCliente();
     }
 
-    @GetMapping("/{DPI}")
+    @GetMapping("/cliente")
     public ResponseEntity<Cliente>buscarClientePorDPI(@PathVariable Long DPI){
         try{
             return ResponseEntity.ok(clienteService.buscarClientePorId(DPI));
@@ -41,7 +41,7 @@ public class ClienteController {
         }
     }
 
-    @PostMapping("/")
+    @PostMapping("/cliente")
     public ResponseEntity<Map<String, Boolean>> agregarCliente(@RequestBody Cliente clinte){
         Map<String, Boolean> response = new HashMap<>();
         try{
@@ -54,7 +54,7 @@ public class ClienteController {
         }
     }
     
-    @PutMapping("/{DPI}")
+    @PutMapping("/cliente")
     public ResponseEntity<Map<String, String>> editarCLiente(@PathVariable Long DPI, @RequestBody Cliente clienteNuevo){
         Map<String, String> response = new HashMap<>();
         try{
@@ -72,7 +72,7 @@ public class ClienteController {
         }
     }
 
-    @DeleteMapping("/{DPI}")
+    @DeleteMapping("/cliente")
     public ResponseEntity<Map<String, String>> eliminarCliente(@PathVariable Long DPI){
         Map<String, String> response = new HashMap<>();
         try{

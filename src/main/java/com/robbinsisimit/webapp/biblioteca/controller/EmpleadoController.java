@@ -38,14 +38,20 @@ public class EmpleadoController {
         }
     }
     @PostMapping("/empleado")
-    public ResponseEntity<Map<String , Boolean>> agregarEmpleado(@RequestBody Empleado empleado){
-        Map<String, Boolean> response = new HashMap<>();
+    public ResponseEntity<Map<String , String>> agregarEmpleado(@RequestBody Empleado empleado){
+        Map<String, String> response = new HashMap<>();
         try{
-            empleadoService.guardarEmpleado((empleado));
-            response.put("Se agrego con exito", Boolean.TRUE);
-            return ResponseEntity.ok(response);
+            if(empleadoService.guardarEmpleado(empleado)){
+                response.put("message","Se agrego con exito");
+                return ResponseEntity.ok(response);
+            }else{
+                response.put("message", "DPI duplicado");
+                return ResponseEntity.badRequest().body(response);
+            }
+            
         }catch(Exception e){
-            response.put("Se no agrego empelado", Boolean.FALSE);
+            response.put("messafe", "error");
+            response.put("err", "no se agrego");
             return ResponseEntity.badRequest().body(response);
         }
     }
