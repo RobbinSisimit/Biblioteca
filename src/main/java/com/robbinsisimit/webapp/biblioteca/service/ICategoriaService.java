@@ -7,7 +7,9 @@ public interface ICategoriaService {
 
     public Categoria busCategoriaPorId(Long id);
 
-    public Categoria guardarCategoria(Categoria categoria);
+    public Boolean guardarCategoria(Categoria categoria);
 
     public void eliminarCategoria(Categoria categoria);
+
+    public Boolean verificarCategoriaDuplicado(Categoria categoriaNueva);
 }

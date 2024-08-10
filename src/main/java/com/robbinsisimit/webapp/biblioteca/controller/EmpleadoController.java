@@ -65,15 +65,22 @@ public class EmpleadoController {
             empleado.setTelefono(empleadoNuevo.getTelefono());
             empleado.setDireccion(empleadoNuevo.getDireccion());
             empleado.setDPI(empleadoNuevo.getDPI());
-            empleadoService.guardarEmpleado(empleado);
-            response.put("message", "el empleado se a editado");
-            return ResponseEntity.ok(response);
+            if(empleadoService.guardarEmpleado(empleado)){
+                response.put("message", "Empleado modificado con exito");
+                return ResponseEntity.ok(response);
+            }else{
+                response.put("message", "el empelado no se a editado");
+                response.put("err", "error");
+                return ResponseEntity.badRequest().body(response);
+            }
 
         }catch(Exception e){
             response.put("message", "el empelado no se a editado");
+            response.put("err", "error");
             return ResponseEntity.badRequest().body(response);
         }
     }
+    
     @DeleteMapping("/empleado")
     public ResponseEntity<Map<String , String>> eliminarEmpleado(@RequestParam Long Id){
         Map<String, String> response = new HashMap<>();

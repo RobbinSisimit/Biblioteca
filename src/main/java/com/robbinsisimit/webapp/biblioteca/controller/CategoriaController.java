@@ -44,14 +44,18 @@ public class CategoriaController {
     }
 
     @PostMapping("/categoria")
-    public ResponseEntity<Map<String, Boolean>> agregarCategoria(@RequestBody Categoria categoria){
-        Map<String, Boolean> response = new HashMap<>();
+    public ResponseEntity<Map<String, String>> agregarCategoria(@RequestBody Categoria categoria){
+        Map<String, String> response = new HashMap<>();
         try{
-            categoriaService.guardarCategoria(categoria);
-            response.put("Se agrego con exito", Boolean.TRUE);
-            return ResponseEntity.ok(response);
+            if(categoriaService.guardarCategoria(categoria)){
+                response.put("message", "se agrego con exito");
+                return ResponseEntity.ok(response);
+            }else{
+                response.put("error", "no se creo por nombre de categoria dupliacado");
+                return ResponseEntity.badRequest().body(response);
+            }
         }catch(Exception e){
-            response.put("Se agrego con exito", Boolean.FALSE);
+            response.put("messae","Se agrego con exito");
             return ResponseEntity.badRequest().body(response);
         }
     }
@@ -62,11 +66,16 @@ public class CategoriaController {
         try{
             Categoria categoria = categoriaService.busCategoriaPorId(id);
             categoria.setNombreCategoria(categoriaNueva.getNombreCategoria());
-            categoriaService.guardarCategoria(categoria);
-            response.put("message", "la categoria se a actulizado exito");
-            return ResponseEntity.ok(response);
+            if(categoriaService.guardarCategoria(categoria)){
+                response.put("message", "la categoria se a actulizado exito");
+                return ResponseEntity.ok(response);
+            }else{
+                response.put("err", "categoria duplicada");
+                return ResponseEntity.badRequest().body(response);
+            }
+            
         }catch(Exception e){
-            response.put("message", "la categoria se peude editar");
+            response.put("err", "la categoria se peude editar");
             return ResponseEntity.badRequest().body(response);
         }
     }
