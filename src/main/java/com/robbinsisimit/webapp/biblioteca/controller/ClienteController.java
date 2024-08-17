@@ -49,7 +49,7 @@ public class ClienteController {
             response.put("se agrego :D un cliente", Boolean.TRUE);
             return ResponseEntity.ok(response);
         }catch(Exception e){
-            response.put("se agrego ;D ", Boolean.FALSE);
+            response.put("no se agrego ;D ", Boolean.FALSE);
             return ResponseEntity.badRequest().body(response);
         }
     }
