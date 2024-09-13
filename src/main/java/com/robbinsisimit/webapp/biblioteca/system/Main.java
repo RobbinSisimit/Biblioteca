@@ -9,6 +9,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import com.robbinsisimit.webapp.biblioteca.BibliotecaApplication;
 import com.robbinsisimit.webapp.biblioteca.controller.FXController.IndexController;
 import com.robbinsisimit.webapp.biblioteca.controller.FXController.CategoriaControllerFX;
+import com.robbinsisimit.webapp.biblioteca.controller.FXController.ClienteControllerFX;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -67,6 +68,14 @@ public class Main extends Application{
         try{
             CategoriaControllerFX categoriaView = (CategoriaControllerFX)switchScene("categoria.fxml", 600, 400);
             categoriaView.setStage(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    public void clienteView(){
+        try{
+            ClienteControllerFX clienteView = (ClienteControllerFX)switchScene("cliente.fxml", 600, 400);
+            clienteView.setStage(this);
         }catch(Exception e){
             e.printStackTrace();
         }

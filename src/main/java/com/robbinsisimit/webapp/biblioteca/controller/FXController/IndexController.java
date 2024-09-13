@@ -33,7 +33,7 @@ public class IndexController implements Initializable{
         if(event.getSource() == btnCategoria){
             stage.categoriaView();
         }else if(event.getSource() == btnClientes){
-
+            stage.clienteView();
         }else if(event.getSource() == btnEmpleados){
 
         }else if(event.getSource() == btnLibros){

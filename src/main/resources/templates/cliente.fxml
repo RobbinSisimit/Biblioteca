@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.robbinsisimit.webapp.biblioteca.controller.FXController.ClienteControllerFX">
+   <children>
+      <TextField fx:id="tfDPI" layoutX="46.0" layoutY="49.0" promptText="DPI" />
+      <TableView fx:id="tblClientes" layoutX="20.0" layoutY="171.0" onMouseClicked="#cargarFormEditar" prefHeight="200.0" prefWidth="325.0">
+        <columns>
+          <TableColumn fx:id="colDPI" prefWidth="75.0" text="DPI" />
+          <TableColumn fx:id="colNombre" prefWidth="75.0" text="nombre" />
+            <TableColumn fx:id="colApellido" prefWidth="75.0" text="Apellido" />
+            <TableColumn fx:id="colTelefono" prefWidth="98.000005086263" text="telefono" />
+        </columns>
+      </TableView>
+      <TextField fx:id="tfNombre" layoutX="213.0" layoutY="49.0" promptText="nombre" />
+      <TextField fx:id="tfApellido" layoutX="46.0" layoutY="98.0" promptText="Apellido" />
+      <TextField fx:id="tfTelefono" layoutX="213.0" layoutY="98.0" promptText="telefono" />
+      <Button fx:id="btnGuardar" layoutX="456.0" layoutY="49.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="41.0" prefWidth="84.0" text="Guardar" />
+      <Button fx:id="btnLimpiar" layoutX="456.0" layoutY="102.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="41.0" prefWidth="84.0" text="VaciarForm" />
+      <Button fx:id="btnEliminar" layoutX="454.0" layoutY="158.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="41.0" prefWidth="84.0" text="Eliminar" />
+   </children>
+</AnchorPane>

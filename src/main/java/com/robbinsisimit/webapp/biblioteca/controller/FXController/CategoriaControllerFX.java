@@ -48,7 +48,17 @@ public class CategoriaControllerFX implements Initializable {
     }
 
     public void handleButtonAction(ActionEvent event) {
-    // Código del evento
+        if(event.getSource() == btnGuardar){
+            if(tfId.getText().isBlank()){
+                agregarCategoria();
+            }else{
+                editarCategoria();
+            }
+        }else if(event.getSource() == btnLimpiar){
+            limpiarForm();
+        }else if(event.getSource() == btnEliminar){
+            eliminarCategoria();
+        }
     }
 
     public void cargarDatos(){
@@ -56,11 +66,42 @@ public class CategoriaControllerFX implements Initializable {
         colId.setCellValueFactory(new PropertyValueFactory<Categoria,Long>("id"));
         colNombre.setCellValueFactory(new PropertyValueFactory<Categoria,String>("nombreCategoria"));
     }
-
+    
     public ObservableList<Categoria> listarCategorias(){
 
         return FXCollections.observableList(categoriaService.listarCategoria());
     }
+    
+    public void limpiarForm(){
+        tfId.clear();
+        tfNombre.clear();
+    }
 
 
+    public void agregarCategoria(){
+        Categoria categoria = new Categoria();
+        categoria.setNombreCategoria(tfNombre.getText());
+        categoriaService.guardarCategoria(categoria);
+        cargarDatos();
+    }
+
+    public void cargarFormEditar(){
+        Categoria categoria = (Categoria)tblCategorias.getSelectionModel().getSelectedItem();
+        if(categoria != null){
+            tfId.setText(Long.toString(categoria.getId()));
+            tfNombre.setText(categoria.getNombreCategoria());
+        }
+    }
+    public void editarCategoria(){
+        Categoria categoria = categoriaService.busCategoriaPorId(Long.parseLong(tfId.getText()));
+        categoria.setNombreCategoria(tfNombre.getText());
+        categoriaService.guardarCategoria(categoria);
+        cargarDatos();
+    }
+
+    public void eliminarCategoria(){
+        Categoria categoria = categoriaService.busCategoriaPorId(Long.parseLong(tfId.getText()));
+        categoriaService.eliminarCategoria(categoria);
+        cargarDatos();
+    }
 }
