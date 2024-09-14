@@ -12,6 +12,7 @@ import com.robbinsisimit.webapp.biblioteca.controller.FXController.CategoriaCont
 import com.robbinsisimit.webapp.biblioteca.controller.FXController.ClienteControllerFX;
 import com.robbinsisimit.webapp.biblioteca.controller.FXController.EmpleadoControllerFX;
 import com.robbinsisimit.webapp.biblioteca.controller.FXController.LibroControllerFX;
+import com.robbinsisimit.webapp.biblioteca.controller.FXController.PrestamoControllerFX;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -94,6 +95,14 @@ public class Main extends Application{
         try{
             LibroControllerFX libroView = (LibroControllerFX)switchScene("libro.fxml", 1000, 600);
             libroView.setStage(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    public void prestamoView(){
+        try{
+            PrestamoControllerFX prestamoView = (PrestamoControllerFX)switchScene("prestamo.fxml", 1000, 600);
+            prestamoView.setStage(this);
         }catch(Exception e){
             e.printStackTrace();
         }

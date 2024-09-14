@@ -22,7 +22,7 @@ public class IndexController implements Initializable{
     @Setter
     private Main stage;
     @FXML
-    MenuItem btnCategoria,btnClientes,btnLibros,btnEmpleados,btnPrestamos;
+    MenuItem btnCategoria,btnClientes,btnLibros,btnEmpleados,btnPrestamo;
 
     @Override
     public void initialize(URL url, ResourceBundle resources) {
@@ -38,7 +38,8 @@ public class IndexController implements Initializable{
             stage.empleadoView();
         }else if(event.getSource() == btnLibros){
             stage.libroView();
-        }else if(event.getSource() == btnPrestamos){
+        }else if(event.getSource() == btnPrestamo){
+            stage.prestamoView();
             
         }
     }
