@@ -29,7 +29,7 @@ public class CategoriaControllerFX implements Initializable {
     @FXML
     TextField tfId, tfNombre;
     @FXML
-    Button btnGuardar,btnLimpiar,btnEliminar;
+    Button btnGuardar,btnLimpiar,btnEliminar,btnRegresar;
     @FXML
     TableView tblCategorias;
     @FXML
@@ -58,6 +58,8 @@ public class CategoriaControllerFX implements Initializable {
             limpiarForm();
         }else if(event.getSource() == btnEliminar){
             eliminarCategoria();
+        }else if(event.getSource() == btnRegresar){
+            stage.indexView();
         }
     }
 

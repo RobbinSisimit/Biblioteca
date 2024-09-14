@@ -26,5 +26,6 @@
       <Button fx:id="btnGuardar" layoutX="458.0" layoutY="131.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="54.0" prefWidth="92.0" text="Guardar" />
       <Button fx:id="btnLimpiar" layoutX="458.0" layoutY="271.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="54.0" prefWidth="92.0" text="Limpiar" />
       <Button fx:id="btnEliminar" layoutX="458.0" layoutY="200.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="54.0" prefWidth="92.0" text="Eliminar" />
+      <Button fx:id="btnRegresar" layoutX="458.0" layoutY="53.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="54.0" prefWidth="92.0" text="Regresar" />
    </children>
 </AnchorPane>
