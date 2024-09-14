@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.robbinsisimit.webapp.biblioteca.controller.FXController.LibroControllerFX">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/Menu%20Libros.png" />
+         </image></ImageView>
+      <TextField fx:id="tfCluster" layoutX="563.0" layoutY="230.0" promptText="Cluster" />
+      <TextField fx:id="tfEstanteria" layoutX="563.0" layoutY="182.0" promptText="Estanteria" />
+      <TextField fx:id="tfDisponibilidad" editable="false" layoutX="383.0" layoutY="230.0" promptText="Disponibilidad" />
+      <TextField fx:id="tfEditorial" layoutX="383.0" layoutY="182.0" promptText="Editorial" />
+      <TextField fx:id="tfAutor" layoutX="197.0" layoutY="230.0" promptText="Autor" />
+      <TextField fx:id="tfIsbn" layoutX="197.0" layoutY="182.0" promptText="ISBN" />
+      <TextField fx:id="tfNombre" layoutX="24.0" layoutY="230.0" promptText="Nombre" />
+      <TextField fx:id="tfId" editable="false" layoutX="24.0" layoutY="182.0" promptText="ID" />
+      <TextField fx:id="tfBuscar" layoutX="14.0" layoutY="124.0" prefHeight="35.0" prefWidth="231.0" />
+      <TextArea fx:id="taSinopsis" layoutX="767.0" layoutY="30.0" prefHeight="200.0" prefWidth="200.0" promptText="Sinopsis" />
+      <TableView fx:id="tblLibros" layoutX="42.0" layoutY="330.0" onMouseClicked="#cargarForm" prefHeight="200.0" prefWidth="883.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="75.0" text="Id" />
+          <TableColumn fx:id="colNombre" prefWidth="75.0" text="Nombre" />
+            <TableColumn fx:id="colSinopsis" prefWidth="75.0" text="Sinopsis" />
+            <TableColumn fx:id="colIsbn" prefWidth="75.0" text="ISBN" />
+            <TableColumn fx:id="colAutor" prefWidth="75.0" text="Autor" />
+            <TableColumn fx:id="colEditorial" prefWidth="75.0" text="Editorial" />
+            <TableColumn fx:id="colDisponibilidad" prefWidth="94.6666259765625" text="Disponibilidad" />
+            <TableColumn fx:id="colEstanteria" prefWidth="96.666748046875" text="Estanteria" />
+            <TableColumn fx:id="colCluster" prefWidth="95.3333740234375" text="Cluster" />
+            <TableColumn fx:id="colCategoria" prefWidth="147.33331298828125" text="Categoria" />
+        </columns>
+      </TableView>
+      <ComboBox fx:id="cmbCategoria" layoutX="767.0" layoutY="243.0" prefWidth="150.0" />
+      <Button fx:id="btnGuardar" layoutX="506.0" layoutY="61.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="81.0" text="Guardar" />
+      <Button fx:id="btnLimpiar" layoutX="614.0" layoutY="61.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="81.0" text="Vaciar" />
+      <Button fx:id="btnEliminar" layoutX="506.0" layoutY="124.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="81.0" text="Eliminar" />
+      <Button fx:id="btnRegresar" layoutX="614.0" layoutY="124.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="81.0" text="Regresar" />
+      <Button fx:id="btnBuscar" layoutX="248.0" layoutY="123.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="58.0" text="B" />
+   </children>
+</AnchorPane>

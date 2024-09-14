@@ -28,7 +28,7 @@ public class ClienteControllerFX implements Initializable {
     @FXML
     TextField tfDPI, tfNombre, tfApellido, tfTelefono;
     @FXML
-    Button btnGuardar, btnLimpiar, btnEliminar;
+    Button btnGuardar, btnLimpiar, btnEliminar, btnRegresar;
     @FXML
     TableView tblClientes;
     @FXML
@@ -56,6 +56,9 @@ public class ClienteControllerFX implements Initializable {
             limpiarForm();
         }else if(event.getSource() == btnEliminar){
             eliminarCliente();
+        }else if(event.getSource() == btnRegresar){
+            stage.indexView();
+
         }
     }
 

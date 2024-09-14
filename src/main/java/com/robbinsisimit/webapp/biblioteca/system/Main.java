@@ -10,6 +10,8 @@ import com.robbinsisimit.webapp.biblioteca.BibliotecaApplication;
 import com.robbinsisimit.webapp.biblioteca.controller.FXController.IndexController;
 import com.robbinsisimit.webapp.biblioteca.controller.FXController.CategoriaControllerFX;
 import com.robbinsisimit.webapp.biblioteca.controller.FXController.ClienteControllerFX;
+import com.robbinsisimit.webapp.biblioteca.controller.FXController.EmpleadoControllerFX;
+import com.robbinsisimit.webapp.biblioteca.controller.FXController.LibroControllerFX;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -76,6 +78,22 @@ public class Main extends Application{
         try{
             ClienteControllerFX clienteView = (ClienteControllerFX)switchScene("cliente.fxml", 600, 400);
             clienteView.setStage(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    public void empleadoView(){
+        try{
+            EmpleadoControllerFX empleadoView = (EmpleadoControllerFX)switchScene("empleado.fxml",1000, 600);
+            empleadoView.setStage(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    public void libroView(){
+        try{
+            LibroControllerFX libroView = (LibroControllerFX)switchScene("libro.fxml", 1000, 600);
+            libroView.setStage(this);
         }catch(Exception e){
             e.printStackTrace();
         }
